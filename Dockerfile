@@ -31,4 +31,6 @@ VOLUME /home/jenkins/agent
 
 WORKDIR /home/jenkins
 
+USER jenkins
+
 ENTRYPOINT ["/usr/local/bin/jenkins-slave"]
