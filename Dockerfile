@@ -4,6 +4,8 @@ ENV HOME=/home/jenkins
 # In future chnage the verison tag to have latest remoting jar
 ARG VERSION=4.7
 
+USER root
+
 RUN yum -y install git sudo openssh-server openssh-clients curl wget yum zip unzip
 
 # Install Java 8
@@ -31,6 +33,6 @@ VOLUME /home/jenkins/agent
 
 WORKDIR /home/jenkins
 
-USER jenkins
+USER jenkins #(if you want to use this slave as dind then remove this user)
 
 ENTRYPOINT ["/usr/local/bin/jenkins-slave"]
